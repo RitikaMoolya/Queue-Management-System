@@ -1,0 +1,29 @@
+.navbar{
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+.navbar-brand{
+    font-size: 50px;
+    
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    font-size: 20px;
+    
+}
+
+.nav-item dropdown{
+    text-align: center;
+    font-size: 20px;
+}
+
+.nav nav-pills .nav-item{
+    display: block;
+    padding-right: 0%;
+}
+
