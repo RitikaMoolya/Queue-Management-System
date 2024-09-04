@@ -13,4 +13,7 @@ def contactus(request):
 def industries(request):
     return render(request, 'industries.html')
 
+def salons(request):
+    return render(request, 'salons.html')
+
 
