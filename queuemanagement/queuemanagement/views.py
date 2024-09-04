@@ -10,4 +10,7 @@ def about(request):
 def contactus(request):
     return render(request, 'contactus.html')
 
+def industries(request):
+    return render(request, 'industries.html')
+
 
