@@ -1,4 +1,4 @@
-<!--{% extends 'layout.html' %}
+{% extends 'layout.html' %}
 
 {% block title %}
     User Login
@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1>User Login</h1>
-    <form class="form-with-validation" action="/users/login/" method="post">
+    <form class="form-with-validation" action="/login" method="post">
         {% csrf_token %}
         {{ form }}
         {% if request.GET.next %}
@@ -14,4 +14,4 @@
         {% endif %}
         <button class="form-submit">Submit</button>
     </form>
-{% endblock %}-->
+{% endblock %}

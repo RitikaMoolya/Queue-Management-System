@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{% url 'Industries' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Services
                     </a>
                     <ul class="dropdown-menu">
@@ -41,21 +41,21 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/about">About</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'About' %}">About</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/contactus">Contact Us</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'ContactUs' %}">Contact Us</a>
                 </li>
             </ul>
           
         
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#"> Sign Up</a>
+                      <a class="nav-link active" aria-current="page" href="{% url 'SignUp' %}"> Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active ms-3" aria-current="page" href="#"> Login</a>
+                    <a class="nav-link active ms-3" aria-current="page" href="{% url 'Login' %}"> Login</a>
               </li>
             </ul>
         </div>
