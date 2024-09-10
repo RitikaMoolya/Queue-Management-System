@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect 
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm 
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import SignUpForm
 from django.contrib.auth import login, logout
+
+
 
 def homepage(request):
     return render(request, 'home.html')
@@ -19,12 +22,12 @@ def salons(request):
 
 def signup_view(request):
     if request.method == "POST": 
-        form = UserCreationForm(request.POST) 
+        form = SignUpForm(request.POST) 
         if form.is_valid(): 
             login(request, form.save())
             return redirect("Home")
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
     return render(request, "signup.html", { "form": form })
 
 def login_view(request): 
@@ -39,3 +42,8 @@ def login_view(request):
     else: 
         form = AuthenticationForm()
     return render(request, "login.html", { "form": form })
+
+def logout_view(request):
+    if request.method == "POST": 
+        logout(request) 
+        return redirect("Home")

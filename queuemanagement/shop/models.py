@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Shop(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="shops")
     name = models.CharField(max_length=75)
     bio = models.TextField()
     contact = models.CharField(max_length=15)
