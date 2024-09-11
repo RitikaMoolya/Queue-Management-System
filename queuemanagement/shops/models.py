@@ -10,7 +10,11 @@ class Shop(models.Model):
     bio = models.TextField()
     contact = models.CharField(max_length=15)
     address = models.TextField()
-    timings = models.TextField()
+    timings = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+        
 
 class Token(models.Model):
     date = models.DateTimeField(auto_now_add=True)

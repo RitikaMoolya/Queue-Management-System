@@ -4,7 +4,6 @@ from .forms import SignUpForm
 from django.contrib.auth import login, logout
 
 
-
 def homepage(request):
     return render(request, 'home.html')
 

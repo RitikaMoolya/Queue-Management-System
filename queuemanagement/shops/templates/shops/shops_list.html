@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Shops
+{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Shops</h1>
+
+    {% for shop in shops %}
+        <article>
+            <h2>{{ shop.name }}</h2>
+            <p> Owned by {{ shop.owner }}</p>
+            <p>{{ shop.bio}}</p>
+            <p>{{ shop.contact}}</p>
+            <p>{{ shop.address}}</p>
+            <p>{{ shop.timings}}</p>
+        </article>
+    {% endfor %}
+    
+</section>
+{% endblock %}
