@@ -6,17 +6,30 @@
 
 {% block content %}
 <section>
-    <h1>Shops</h1>
+    <h1 class="text-center fs-1" style="color:#800000;"><strong>Here is the list of the shops</strong></h1>
+    <p class="text-center fs-4"><strong>Select the shop as per your requiremnet and Book your Appointment</strong></p>
+    <a class="btn btn-primary btn-lg" style="background-color: #fd7e14; border:#fd7e14;" href="{% url 'shops:New-Shop' %}"> 
+    + Create
+    </a> 
+    <br><br>
 
     {% for shop in shops %}
-        <article>
-            <h2>{{ shop.name }}</h2>
-            <p> Owned by {{ shop.owner }}</p>
-            <p>{{ shop.bio}}</p>
-            <p>{{ shop.contact}}</p>
-            <p>{{ shop.address}}</p>
-            <p>{{ shop.timings}}</p>
-        </article>
+    <div class="card mb-3 " style="max-width:1500px ;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{ shop.image.url }}" class="img-fluid rounded-start" alt="Shop" />
+          </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h2 class="card-title display-5">{{ shop.name }}</h2>
+                <p class="card-text">Category:- {{ shop.category}}</p>
+                <p class="card-text">Address:- {{ shop.address}}</p>
+                <p class="card-text">Timings:- {{ shop.timings}}</p>          
+            <a href="{% url 'shops:Profile' shop.id %}" class="btn btn-primary stretched-link" style="background-color: #6610f2; border:#6610f2;">Book Appointment</a>
+            </div>
+        </div>
+        </div>
+    </div>
     {% endfor %}
     
 </section>
