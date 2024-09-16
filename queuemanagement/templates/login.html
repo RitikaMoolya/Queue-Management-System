@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1><center>User Login</center></h1>
     <form class="form-with-validation w-50 mt-5 mx-auto shadow p-5" action="{% url 'Login' %}" method="post">
+        <h1><center>User Login</center></h1>
         {% csrf_token %}
         {{ form|crispy }}
         {% if request.GET.next %}
             <input type="hidden" name="next" value="{{ request.GET.next }}" />
         {% endif %}
-        <button class="form-submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 {% endblock %}

@@ -35,11 +35,30 @@
         </button>
       </div>
     <br> <br>
-                <p>Bio:- {{ shop.bio}}</p>
-                <p>Address:- {{ shop.address}}</p>
-                <p>Contact:- {{ shop.contact}}</p>
-                <p>Timings:- {{ shop.timings}}</p>          
-
+    <div class="card border-primary mb-3" style="max-width: 100rem;">
+      <div class="card-header text-danger fw-semibold fs-4">Bio</div>
+      <div class="card-body">
+        <p class="card-text">{{ shop.bio}}</p>
+      </div>
+    </div>
+    <div class="card border-primary mb-3" style="max-width: 100rem;">
+      <div class="card-header text-danger fw-semibold fs-4">Addresss</div>
+      <div class="card-body">
+        <p class="card-text">{{ shop.address}}</p>
+      </div>
+    </div>
+    <div class="card border-primary mb-3" style="max-width: 100rem;">
+      <div class="card-header text-danger fw-semibold fs-4">Contact</div>
+      <div class="card-body">  
+        <p class="card-text">{{ shop.contact}}</p>
+      </div>
+    </div>
+    <div class="card border-primary mb-3" style="max-width: 100rem;">
+      <div class="card-header text-danger fw-semibold fs-4">Timings</div>
+      <div class="card-body">
+        <p class="card-text">{{ shop.timings}}</p>          
+      </div>
+    </div>
 </section>
 
 {% endblock %}
