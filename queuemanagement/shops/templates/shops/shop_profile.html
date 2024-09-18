@@ -6,8 +6,25 @@
 
 {% block content %}
 <section>
-
+  
     <h1 class="display-4 fst-italic text-center"><strong>{{ shop.name }}</strong></h1><br>
+    <div>
+      <a href="#" class="btn btn-primary d-inline-flex justify-content-end" style="background-color: #6610f2; border:#6610f2;">Book Appointment</a>
+    </div>
+    <br>
+    <p>
+    <div class="alert alert-danger w-25" role="alert">
+      {% if current %}
+        Current: {{ current.number }}
+      {% endif %}  
+    </div>
+    </p>
+    <br>
+    <strong>
+      <div class="alert alert-primary w-25" role="alert">
+      Next Availbale Number(Approx): {{ number }}
+      </div> 
+    </strong>
     <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

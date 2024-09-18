@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block content %}
-        <div class="w-60 mt-4 mx-auto shadow p-5">
-            <h1 class="text-center" style="color:#006400;"><strong>Create your shop profile here!!</strong></h1>
-            <p class="text-center text-danger fs-4"> >>Streamline Your Business, Satisfy Every Customer<< </p><br>
+        <div class="w-50 mt-4 mx-auto shadow p-5">
+            <h2 class="text-center" style="color:#006400;"><strong>Create your shop profile here!!</strong></h2>
+            <p class="text-center text-danger fs-5"> >>Streamline Your Business, Satisfy Every Customer<< </p><br>
             <form class="form-with-validation" action="{% url 'shops:New-Shop' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %} 
                 {{ form|crispy }}
-                <button class="form-submit btn btn-outline-success btn-lg mx-auto">Add Shop</button>
+                <button class="form-submit btn btn-outline-success btn-sm mx-auto">Add Shop</button>
             </form>
         </div>
 {% endblock %}

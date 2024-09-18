@@ -7,10 +7,21 @@
 {% block content %}
 <section>
     <h1 class="text-center fs-1" style="color:#800000;"><strong>Here is the list of the shops</strong></h1>
-    <p class="text-center fs-4"><strong>Select the shop as per your requiremnet and Book your Appointment</strong></p>
+    <p class="text-center fs-4"><strong>Select the shop as per your requirement and Book your Appointment</strong></p>
+    {% if user.is_authenticated %}
     <a class="btn btn-primary btn-lg" style="background-color: #fd7e14; border:#fd7e14;" href="{% url 'shops:New-Shop' %}"> 
     + Create
-    </a> 
+    </a><br><br>
+    {% endif %}
+    <form>
+        <select class="form-select w-25" name="category" aria-label="Default select example">
+            <option>Categories</option>
+            {% for c in categories %}
+            <option {% if category == c.id %}selected{% endif %} value="{{c.id}}">{{ c.category_title }}</option>
+            {% endfor %}
+          </select><br>
+          <button type="submit">Filter</button>
+    </form>
     <br><br>
 
     {% for shop in shops %}
@@ -19,18 +30,19 @@
           <div class="col-md-4">
             <img src="{{ shop.image.url }}" class="img-fluid rounded-start" alt="Shop" />
           </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h2 class="card-title display-5">{{ shop.name }}</h2>
-                <p class="card-text">Category:- {{ shop.category}}</p>
-                <p class="card-text">Address:- {{ shop.address}}</p>
-                <p class="card-text">Timings:- {{ shop.timings}}</p>          
-            <a href="{% url 'shops:Profile' shop.id %}" class="btn btn-primary stretched-link" style="background-color: #6610f2; border:#6610f2;">Book Appointment</a>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <a href="{% url 'shops:Profile' shop.id %}"></a> 
+                        <h2 class="card-title display-5">{{ shop.name }}</h2>
+                        <p class="card-text">Category:- {{ shop.category}}</p>
+                        <p class="card-text">Address:- {{ shop.address}}</p>
+                        <p class="card-text">Timings:- {{ shop.timings}}</p>   
+                    <a href="{% url 'shops:Profile' shop.id %}" class="btn btn-primary stretched-link" style="background-color: #6610f2; border:#6610f2;">View</a>          
+                </div>  
             </div>
-        </div>
         </div>
     </div>
     {% endfor %}
-    
+
 </section>
 {% endblock %}
