@@ -34,6 +34,12 @@ def shop_new(request):
         form = forms.CreateShop()
     return render(request, 'shops/shop_new.html', { 'form': form })
 
+'''def dashboard(request,pk):
+    shop = Shop.objects.get(pk=pk)
+    return render(request, 'shops/dashboard.html', {'shop': shop} )'''
+
+def dashboard(request):
+    return render(request, 'shops/dashboard.html')
 
     
     

@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+<section>
+<h1 class="display-4 fst-italic text-center"><strong> Shop Name{{ shop.name }}</strong></h1><br>
+<div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card" style="max-width: 560px;">
+        <div class="card-body rounded" style="background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);">
+          <h2 class="card-title text-center">Today's total Bookings 🡫</h2>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card" style="max-width: 560px;">
+        <div class="card-body rounded" style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">
+          <h2 class="card-title text-center">Current token no. 🡫</h2>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+  <table class="table table-hover caption-top table-secondary">
+  <caption>List of Customers</caption>
+    <thead class="table-dark">
+      <tr>
+        <th scope="col" style="width:12%">#</th>
+        <th scope="col" style="width:12%">Username</th>
+        <th scope="col" style="width:12%">Booking No.</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<br><br><br>
+<section>
+<center>
+  <div class="card text-center" style="max-width: 560px;">
+    <div class="card-header" style="background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+      <h2>
+      Your Tokens
+      </h2>
+    </div>
+    <div class="card-body" style="background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+      <h5 class="card-title">Shop Name{{ shop.name }}</h5>
+      <p class="card-text fs-5">Your token no.:</p>
+      <p class="card-text fs-5">Current token no.:</p>
+    </div>
+  </div>
+</center><br><br>
+</section>
+{% endblock %}

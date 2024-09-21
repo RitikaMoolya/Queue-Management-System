@@ -27,7 +27,7 @@
             <ul class="navbar-nav nav nav-underline mx-auto mb-2 mb-lg-0">
                 {% if user.is_authenticated and user.shops.count > 0 %}
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Dashboard</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'shops:Dashboard' %}">Dashboard</a>
                 </li>
                 {% endif %}
                 <li class="nav-item">
