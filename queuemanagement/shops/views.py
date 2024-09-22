@@ -1,7 +1,7 @@
 from datetime import date
 
 from django.contrib.auth.decorators import login_required
-from django.db.models import F, Max
+from django.db.models import Max
 from django.shortcuts import redirect, render
 from django.views.decorators.http import require_http_methods
 
@@ -53,8 +53,26 @@ def shop_new(request):
     return render(request, 'shops/shop_new.html', {'form': form})
 
 
+@login_required
 def dashboard(request):
-    return render(request, 'shops/dashboard.html')
+    user_tokens = Token.objects.filter(date=date.today(), user=request.user).prefetch_related('shop')
+    current_tokens = []
+    for user_token in user_tokens:
+        current_tokens.append(Token.objects.filter(shop=user_token.shop, date=date.today(), current=True).first())
+    tokens = list(zip(user_tokens, current_tokens))
+    shops = Shop.objects.filter(owner=request.user)
+    shops_data = []
+    for shop in shops:
+        shop_tokens = Token.objects.filter(shop=shop, date=date.today()).prefetch_related('user')
+        total_bookings = shop_tokens.count()
+        current_token = Token.objects.filter(shop=shop, date=date.today(), current=True).first()
+        shops_data.append({
+            'current': current_token,
+            'total': total_bookings,
+            'shop_tokens': shop_tokens,
+            'shop_name': shop.name,
+        })
+    return render(request, 'shops/dashboard.html', {'tokens': tokens, 'shops_data': shops_data})
 
 
 @login_required
