@@ -91,3 +91,11 @@ def book_appointment(request, pk):
 def cancel_appointment(request, pk):
     Token.objects.filter(shop__id=pk, user=request.user, date=date.today()).delete()
     return redirect('shops:Profile', pk=pk)
+
+
+@login_required
+@require_http_methods(['POST'])
+def set_current(request, pk):
+    Token.objects.all().update(current=False)
+    Token.objects.filter(pk=pk).update(current=True)
+    return redirect('shops:Dashboard')

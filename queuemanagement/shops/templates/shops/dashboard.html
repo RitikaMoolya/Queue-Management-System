@@ -35,13 +35,24 @@ Dashboard
       <tr>
         <th scope="col">Username</th>
         <th scope="col">Booking No.</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
       {% for token in shop_data.shop_tokens %}
-      <tr>
+      <tr class="{% if token.current %}current-token{% endif %}">
         <td>{{ token.user.username }}</td>
         <td>{{ token.number }}</td>
+        <td>
+          {% if not token.current %}
+          <form method="POST" action="{% url 'shops:set_current' token.id %}">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-sm">
+              Set current
+            </button>
+          </form>
+          {% endif %}
+        </td>
       </tr>
       {% endfor %}
     </tbody>

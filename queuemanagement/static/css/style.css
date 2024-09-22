@@ -1,3 +1,9 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar{
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
@@ -57,3 +63,11 @@
     max-height: 400px; /* Set desired height */
     object-fit: cover; /* Ensure image covers the set height without distortion */
   }
+
+.current-token td {
+  background-color: lightblue;
+}
+
+footer {
+  margin-top: auto;
+}

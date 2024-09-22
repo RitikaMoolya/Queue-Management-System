@@ -19,7 +19,7 @@
       <div class="text-end">
         <form method="POST" action="{% url 'shops:cancel_appointment' shop.id %}">
           {% csrf_token %}
-          <button class="btn btn-danger btn-lg d-inline-flex justify-content-end">Cancel Appointment</a>
+          <button class="btn btn-danger btn-lg d-inline-flex justify-content-end">Cancel Appointment</button>
         </form>
       </div>
     {% endif %}
