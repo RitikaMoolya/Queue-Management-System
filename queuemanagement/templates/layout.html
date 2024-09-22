@@ -81,5 +81,47 @@
         {% endblock %}
     </main>
 </div>
+<br><br>
+<!--footer-->
+<footer class="bg-dark text-white pt-4">
+    <div class="container">
+        <div class="row">
+            <!-- Company Info -->
+            <div class="col-md-4 mb-4">
+                <h4>About WaitWise</h4>
+                <p>WaitWise is a queue management website designed to enhance customer satisfaction and streamline business operations by efficiently managing queues.</p>
+            </div>
+
+            <!-- Links -->
+            <div class="col-md-4 mb-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/" class="text-white">Home</a></li>
+                    <li><a href="{% url 'shops:Shops' %}" class="text-white">Services</a></li>
+                    <li><a href="{% url 'About' %}" class="text-white">About</a></li>
+                    <li><a href="{% url 'ContactUs' %}" class="text-white">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-4 mb-4">
+                <h5>Contact</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-map-marker-alt"></i> Address : Navi Mumbai, Maharashtra, India</li><br>
+                    <li><i class="fas fa-envelope"></i> Email : waitwise@gamil.com</li><br>
+                    <li><i class="fas fa-phone"></i>Phone : +123 456 7890</li><br>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-left py-3 p-5">
+        © 2024 WaitWise. All Rights Reserved.
+    </div>
+    <div class="text-end py-3 p-5">
+        Developed by Ritika Moolya
+    </div>
+</footer>
 </body>
 </html>
