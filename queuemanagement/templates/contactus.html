@@ -1,36 +1,48 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    About
+    Contact Us
 {% endblock %}
 
 {% block content %}
     <h1 class="bvms-size">Find out how WaitWise can help you</h1>
-    <p class="contact-p">If you have anything to ask, feel free to send us a message </p>
+    <p class="contact-p">If you have anything to ask, feel free to send us a message</p>
 
     <div class="d-flex align-items-center row">
         <div class="col">
-        <form>
-            <label for="fname" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="fname" name="fulltname" placeholder="Full Name"><br>
-        
-            <label for="phonenumbe" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number"><br>
-        
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email"><br>
-        
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" class="form-control" name="message" placeholder="Message" style="height:200px"></textarea><br>
-        <div class="btn btn-lg btn-success ">
-            Send Message
+            <form id="contactForm">
+                <label for="fname" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fname" name="fullname" placeholder="Full Name" required><br>
+
+                <label for="phonenumber" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number" required><br>
+
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required><br>
+
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" class="form-control" name="message" placeholder="Message" style="height:200px" required></textarea><br>
+                <button type="submit" class="btn btn-outline-success">Send Message</button>
+            </form>
         </div>
-          </form>
-        </div>
+
         <div class="col">
-            <img src="https://www.rsiconcepts.com/blog/wp-content/uploads/2022/11/Key-Tips-To-Improve-Service-Quality-Through-Queue-Management-System-1.jpg" alt="Queue" height="400" width="600" />
-          </div>
+            <img src="https://www.rsiconcepts.com/blog/wp-content/uploads/2022/11/Key-Tips-To-Improve-Service-Quality-Through-Queue-Management-System-1.jpg" alt="Queue" class="img-stretch center" />
         </div>
-      
-    
+    </div>
+
+    <!-- JavaScript for form submission alert -->
+    <script>
+        // Select the form
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            // Prevent the default form submission
+            e.preventDefault();
+
+            // Display an alert message
+            alert('Form submitted successfully! Thank you for contacting us.');
+
+            // Reset the form fields
+            this.reset();
+        });
+    </script>
 {% endblock %}

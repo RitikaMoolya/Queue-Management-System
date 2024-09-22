@@ -5,7 +5,7 @@
 
 .navbar-brand{
     font-size: 50px;
-    
+
 }
 
 .nav-item{
@@ -14,7 +14,7 @@
     justify-content: center;
     list-style: none;
     font-size: 20px;
-    
+
 }
 
 .nav nav-pills .nav-item{
@@ -30,6 +30,30 @@
     height: 100%
   }
 
+#id_honeypot {
+    display: none;
+}
 
+#comments {
+  border: 1px solid;
+  padding: 10px;
+  background-color: gainsboro;
+}
 
+.stretch-image {
+    width: 100%; /* Stretch image to full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Set maximum height to prevent excessive stretching */
+    object-fit: cover;
+}
 
+.img-stretch {
+    width: 100%; /* Make the image take the full width of its container */
+    height: 500px; /* Set the desired height for the image */
+    object-fit: cover; /* Ensure the image covers the entire area without distortion */
+}
+
+.carousel-inner img {
+    max-height: 400px; /* Set desired height */
+    object-fit: cover; /* Ensure image covers the set height without distortion */
+  }

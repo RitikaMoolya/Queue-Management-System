@@ -31,10 +31,11 @@ urlpatterns = [
     path('signup/', views.signup_view, name="SignUp"),
     path('login/', views.login_view, name="Login"),
     path('logout/', views.logout_view, name="Logout"),
+    path('comments/', include('django_comments.urls')),
     path('shops/', include('shops.urls')),
-    
+
 ]
 
 if settings.DEBUG:
-        urlpatterns += static(settings.MEDIA_URL, 
+        urlpatterns += static(settings.MEDIA_URL,
                         document_root=settings.MEDIA_ROOT)

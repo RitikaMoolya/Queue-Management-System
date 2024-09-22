@@ -13,7 +13,7 @@
         {% if request.GET.next %}
             <input type="hidden" name="next" value="{{ request.GET.next }}" />
         {% endif %}
-        <button type="submit" class="btn btn-primary">Login</button><br><br>
+        <button type="submit" class="btn btn-outline-primary">Login</button><br><br>
         <a href="{% url 'SignUp' %}">New User? Sign up here</a>
     </form>
 {% endblock %}

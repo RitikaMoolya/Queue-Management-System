@@ -14,13 +14,13 @@
     </a><br><br>
     {% endif %}
     <form>
-        <select class="form-select w-25" name="category" aria-label="Default select example">
+        <select class="form-select w-25" name="category" aria-label="Default select example" >
             <option>Categories</option>
             {% for c in categories %}
             <option {% if category == c.id %}selected{% endif %} value="{{c.id}}">{{ c.category_title }}</option>
             {% endfor %}
           </select><br>
-          <button type="submit">Filter</button>
+          <button type="submit" class="btn btn-outline-secondary">Filter</button>
     </form>
     <br><br>
 
@@ -31,8 +31,7 @@
             <img src="{{ shop.image.url }}" class="img-fluid rounded-start" alt="Shop" />
           </div>
             <div class="col-md-8">
-                <div class="card-body">
-                    <a href="{% url 'shops:Profile' shop.id %}"></a> 
+                <div class="card-body"> 
                         <h2 class="card-title display-5">{{ shop.name }}</h2>
                         <p class="card-text">Category:- {{ shop.category}}</p>
                         <p class="card-text">Address:- {{ shop.address}}</p>

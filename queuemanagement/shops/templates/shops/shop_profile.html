@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load comments %}
 
 {% block title %}
     Shop Profile
@@ -6,24 +7,28 @@
 
 {% block content %}
 <section>
-
-    <h1 class="display-4 fst-italic text-center"><strong>{{ shop.name }}</strong></h1><br>
+    <h1 class="display-3 fst-italic text-center"><strong>{{ shop.name }}</strong></h1>
     {% if not your_num %}
-      <div>
+      <div class="text-end">
         <form method="POST" action="{% url 'shops:book_appointment' shop.id %}">
           {% csrf_token %}
-          <button class="btn btn-primary d-inline-flex justify-content-end" style="background-color: #6610f2; border:#6610f2;" type="submit">Book Appointment</a>
+          <button class="btn btn-primary btn-lg d-inline-flex justify-content-end" style="background-color: #6610f2; border:#6610f2;" type="submit">Book Appointment</a>
+        </form>
+      </div>
+    {% else %}
+      <div class="text-end">
+        <form method="POST" action="{% url 'shops:cancel_appointment' shop.id %}">
+          {% csrf_token %}
+          <button class="btn btn-danger btn-lg d-inline-flex justify-content-end">Cancel Appointment</a>
         </form>
       </div>
     {% endif %}
-    <br>
     {% if current %}
     <div class="alert alert-danger w-25" role="alert">
       {% if current %}
         Current: {{ current.number }}
       {% endif %}
     </div>
-    <br>
     {% endif %}
     {% if your_num %}
     <strong>
@@ -34,7 +39,7 @@
     {% else %}
     <strong>
       <div class="alert alert-primary w-25" role="alert">
-      Next Availbale Number(Approx): {{ next_number }}
+      Next Available Number(Approx): {{ next_number }}
       </div>
     </strong>
     {% endif %}
@@ -43,7 +48,7 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -94,5 +99,27 @@
       </div>
     </div>
 </section>
+
+{% if user.is_authenticated %}
+{% get_comment_form for shop as form %}
+<form action="{% comment_form_target %}" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
+    <textarea name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  {{ form.honeypot }}
+  {{ form.content_type }}
+  {{ form.object_pk }}
+  {{ form.timestamp }}
+  {{ form.security_hash }}
+  <input type="hidden" name="next" value="{% url 'shops:Profile' shop.id %}" />
+  <button type="submit" class="btn btn-primary mb-4" id="id_submit">Add comment</button>
+</form>
+{% else %}
+<p>Please <a href="{% url 'auth_login' %}">log in</a> to leave a comment.</p>
+{% endif %}
+
+{% render_comment_list for shop %}
 
 {% endblock %}
