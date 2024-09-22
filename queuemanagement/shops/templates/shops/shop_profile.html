@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load comments %}
 
 {% block title %}
     Shop Profile
@@ -97,5 +98,27 @@
       </div>
     </div>
 </section>
+
+{% if user.is_authenticated %}
+{% get_comment_form for shop as form %}
+<form action="{% comment_form_target %}" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
+    <textarea name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  {{ form.honeypot }}
+  {{ form.content_type }}
+  {{ form.object_pk }}
+  {{ form.timestamp }}
+  {{ form.security_hash }}
+  <input type="hidden" name="next" value="{% url 'shops:Profile' shop.id %}" />
+  <button type="submit" class="btn btn-primary mb-4" id="id_submit">Add comment</button>
+</form>
+{% else %}
+<p>Please <a href="{% url 'auth_login' %}">log in</a> to leave a comment.</p>
+{% endif %}
+
+{% render_comment_list for shop %}
 
 {% endblock %}
